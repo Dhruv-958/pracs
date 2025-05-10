@@ -1,0 +1,24 @@
+1: sudo service mongodb start
+2: mongo
+3: use dhruv
+4: db.createCollection("emp_info")
+5: 
+ > db.emp_info.insert({id:"E101",ename:"abc",age:25,dept:"tester",sal:25000})
+ WriteResult({ "nInserted" : 1 })
+ > db.emp_info.insert({id:"E102",ename:"pqr",age:50,dept:"R&D",sal:50000})
+ WriteResult({ "nInserted" : 1 })
+ > db.emp_info.insert({id:"E103",ename:"def",age:56,dept:"R&D",sal:75000})
+ WriteResult({ "nInserted" : 1 })
+ > db.emp_info.insert({id:"E104",ename:"xyz",age:28,dept:"dev",sal:50000})
+ WriteResult({ "nInserted" : 1 })
+ > db.emp_info.insert({id:"E105",ename:"mno",age:30,dept:"tester",sal:55000})
+ WriteResult({ "nInserted" : 1 })
+6: db.emp_info.find()
+7: db.emp_info.find().pretty()
+8: db.emp_info.find({sal:{$gte:50000}})
+9: db.emp_info.find({age:50},{dept:"R&D"})
+10: db.emp_info.findOne({age:50},{dept:"R&D"})
+11: db.emp_info.remove({dept:"tester"})
+12: db.emp_info.update({dept:"dev"},{$set:{dept:"R&D"}},{multi:true})
+13: db.emp_info.update({dept:"tester"},{dept:"R&D"})
+14: db.emp_info.find()
